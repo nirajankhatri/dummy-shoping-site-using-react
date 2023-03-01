@@ -1,37 +1,41 @@
 .newsCard {
-    height: 300px;
-    width: 300px;
+  height: 360px;
+  width: 300px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 30px;
 
-    .image-container {
-        height: 50%;
-        text-align: center;
+  .image-container {
+    text-align: center;
 
-        .product-image {
-            max-width: 100%;
-            max-height: 100%;
-        }
+    .product-image {
+      max-width: 300px;
+      height: 150px;
+    }
+  }
+
+  .product-info {
+    padding: 0 12px;
+    text-align: start;
+    display: grid;
+    grid-template-rows: 44px 95px auto;
+
+    .product-title {
+      font-size: 1.125rem;
     }
 
-    .product-info {
-        height: 50%;
-        text-align: start;
-        margin-top: 1vh;
-        display: flex;
-        flex-direction: column;
-        gap: .5em;
-
-        .product-title {
-            font-size: 1.125rem;
-        }
-
-        .product-description {
-            color: #141414;
-            min-height: 100px;
-        }
-
-        .product-price {
-            font-size: 0.80rem;
-        }
-
+    .product-description {
+      color: #141414;
     }
+
+    .product-price {
+      font-size: 0.8rem;
+    }
+  }
+
+  .details-btn {
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(111, 150, 67);
+    padding: 5px 0px;
+  }
 }

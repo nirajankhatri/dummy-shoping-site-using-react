@@ -18,7 +18,7 @@ function Navbar() {
       </div>
       <div className="nav-right btns">
         <button className="btn btn-login">Login</button>
-        <button className="btn btn-free-trial">Free Trial</button>
+        {/* <button className="btn btn-free-trial">Free Trial</button> */}
       </div>
     </div>
   );
