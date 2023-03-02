@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../utilities/axios_dummyJSON";
 
 import {
   PRODUCT_LIST_REQUEST,
@@ -13,7 +13,7 @@ export const listNews = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get("https://dummyjson.com/products?limit=16");
+    const { data } = await axios.get("/products?limit=16");
 
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -31,7 +31,7 @@ export const productDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`https://dummyjson.com/products/${id}`);
+    const { data } = await axios.get(`/products/${id}`);
 
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
