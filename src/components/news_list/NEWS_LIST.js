@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { listNews } from "../../redux/productActions";
 import { useDispatch, useSelector } from "react-redux";
 import NEWS_CARD from "../news_card/NEWS_CARD";
-import '../../style/components/_news_card_list.scss'
+import "../../style/components/_news_card_list.scss";
+import Spinner from "../spinner/Spinner";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NEWS_LIST = () => {
   const dispatch = useDispatch();
@@ -12,11 +15,23 @@ const NEWS_LIST = () => {
 
   let newsItems = [];
 
-  if (data.products !== undefined && data.products !== null) {
-    newsItems = data.products.map((newsItem) => (
-      <NEWS_CARD key={newsItem.id} itemData={newsItem} />
-    ));
+  if (error) {
+    toast.error(error, {
+      autoClose: false,
+    });
   }
+
+  newsItems = loading ? (
+    <Spinner />
+  ) : error ? (
+    <ToastContainer />
+  ) : (
+    <>
+      {data.products.map((newsItem) => (
+        <NEWS_CARD key={newsItem.id} itemData={newsItem} />
+      ))}
+    </>
+  );
 
   useEffect(() => {
     dispatch(listNews());
